@@ -3,14 +3,14 @@ import ProductSaleHeader from './prodSaleHeader';
 import Card from './card';
 import ProductsContainer from './productsContainer';
 
-const AllProducts = () => {
+const AllProducts = ({products, page, link, handleLikeChange, handlePageChangeProduct}) => {
     return ( 
-        <div className="flex flex-col gap-y-10">
-            <ProductSaleHeader text="Our Products" header="Explore Our Products" />
+        (products ? (<div className="flex flex-col gap-y-10">
+            <ProductSaleHeader products={products} handlePageChangeProduct={handlePageChangeProduct} text="Our Products" header="Explore Our Products" />
             <div className="">
-                <ProductsContainer />
+                <ProductsContainer link={link} page={page} handlePageChangeProduct={handlePageChangeProduct} products={products} handleLikeChange={handleLikeChange} />
             </div>
-        </div>
+        </div>) : '')
      );
 }
  
